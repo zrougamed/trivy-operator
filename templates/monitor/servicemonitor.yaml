@@ -1,4 +1,3 @@
-{{- if and (eq .Values.serviceMonitor.enabled true) (.Capabilities.APIVersions.Has "monitoring.coreos.com/v1") }}
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -30,4 +29,4 @@ spec:
     {{- with .Values.serviceMonitor.endpointAdditionalProperties }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
-{{- end }}
+
