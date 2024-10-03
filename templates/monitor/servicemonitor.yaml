@@ -2,11 +2,13 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: {{ include "trivy-operator.fullname" . }}
-  namespace: {{ .Values.serviceMonitor.namespace | default (include "trivy-operator.namespace" . ) }}
+  namespace: {{ include "trivy-operator.namespace" . }}
+  labels: {{- include "trivy-operator.labels" . | nindent 4 }}
   {{- with .Values.serviceMonitor.annotations }}
   annotations: {{- toYaml . | nindent 4 }}
   {{- end }}
   labels:
+    selector: kps
     {{- include "trivy-operator.labels" . | nindent 4 }}
     {{- with .Values.serviceMonitor.labels }}
       {{- toYaml . | nindent 4 }}
