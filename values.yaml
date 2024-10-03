@@ -199,7 +199,7 @@ image:
 # trivy-operator does not have a user interface.
 service:
   # -- if true, the Service doesn't allocate any IP
-  headless: true
+  headless: false
   # -- port exposed by the Service
   metricsPort: 80
   # -- annotations added to the operator's service
@@ -227,7 +227,7 @@ serviceMonitor:
   labels: 
     selector: kps 
   # -- HonorLabels chooses the metric’s labels on collisions with target labels
-  honorLabels: true
+  # honorLabels: true
   # -- EndpointAdditionalProperties allows setting additional properties on the endpoint such as relabelings, metricRelabelings etc.
   endpointAdditionalProperties: {}
 
@@ -351,7 +351,7 @@ trivy:
 
   # -- mode is the Trivy client mode. Either Standalone or ClientServer. Depending
   # on the active mode other settings might be applicable or required.
-  mode: Standalone
+  mode: ClientServer
 
   # -- sbomSources trivy will try to retrieve SBOM from the specified sources (oci,rekor)
   sbomSources: ""
