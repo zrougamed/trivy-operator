@@ -351,7 +351,7 @@ trivy:
 
   # -- mode is the Trivy client mode. Either Standalone or ClientServer. Depending
   # on the active mode other settings might be applicable or required.
-  mode: ClientServer
+  mode: Standalone
 
   # -- sbomSources trivy will try to retrieve SBOM from the specified sources (oci,rekor)
   sbomSources: ""
