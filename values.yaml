@@ -216,15 +216,16 @@ service:
 # have no effect.
 serviceMonitor:
   # -- enabled determines whether a serviceMonitor should be deployed
-  enabled: false
+  enabled: true
   # -- The namespace where Prometheus expects to find service monitors
-  namespace: ~
+  namespace: trivy-system
   # -- Interval at which metrics should be scraped. If not specified Prometheus’ global scrape interval is used.
-  interval: ~
+  interval: 30s
   # -- Additional annotations for the serviceMonitor
   annotations: {}
   # -- Additional labels for the serviceMonitor
-  labels: {}
+  labels: 
+    selector: kps 
   # -- HonorLabels chooses the metric’s labels on collisions with target labels
   honorLabels: true
   # -- EndpointAdditionalProperties allows setting additional properties on the endpoint such as relabelings, metricRelabelings etc.
